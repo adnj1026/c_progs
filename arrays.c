@@ -1,0 +1,176 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+/*
+1. display and output an array
+2. read array elements and find their sum
+3. find max and min in array
+4. count even and odd numbers
+5. reverse an array
+6. search second largest element
+7. copy array(elements of one array to another
+*/
+
+void arraysum(int arr[], int n);
+void displayarray(int arr[], int n);
+void maxandminarray(int arr[], int n);
+void countevenandoddarray(int arr[],int n);
+void reversearray(int arr[],int n);
+void linearsearch(int arr[], int n);
+void secondlargestelement(int arr[], int n);
+void removeduplicates(int arr[],int n);
+int* copyarray(int arr[],int n);
+
+int main(){
+    int n;
+    printf("enter no of elements of array ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("enter elements of array ");
+    for(int i = 0; i<n; i++)
+        scanf("%d",&arr[i]);
+    linearsearch(arr, n);
+    return 0;
+}
+void displayarray(int arr[], int n){
+    for(int i = 0; i < n; i++){
+        if(i == 0){
+            printf("[");
+            printf("%d ",arr[i]);
+        }
+        else if( i == n-1){
+             printf("%d",arr[i]);
+             printf("]");
+        }
+        else
+            printf("%d ",arr[i]);
+    }
+}
+void arraysum(int arr[], int n){
+    int sum = 0;
+    for(int i = 0; i < n ; i++)
+        sum = sum + arr[i];
+    printf("the sum of the array is %d",sum);
+}
+void maxandminarray(int arr[], int n){
+    int max=0,min=0;
+    min = arr[0];
+    max = arr[0];
+    for(int i = 0; i < n ; i++){
+        if(arr[i]==max || arr[i] == min)
+            continue;
+        else if(arr[i]>max)
+            max = arr[i];
+        else if(arr[i]<min)
+            min = arr[i];
+    }
+    printf("the min is %d\n",min);
+    printf("the max is %d",max);
+}
+
+void countevenandoddarray(int arr[],int n){
+   int count_even=0,count_odd=0;
+    for(int i = 0; i < n ; i++){
+        if(arr[i] % 2 ==0)
+            count_even += 1;
+        else
+            count_odd += 1;
+    }
+    printf("the oddcount is %d\n",count_odd);
+    printf("the evencount is %d",count_even);
+} 
+
+void reversearray(int arr[],int n){
+    int temp;
+    for(int i = 0; i < n ; i++){
+        if(n % 2 == 0 && i > (n/2)-1)
+            break;
+        else if(n%2 != 0 && i > (n-1)/2)
+            break;
+        temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+    }
+    printf("the reversed arrray is \n");
+    displayarray(arr,n);
+}
+
+void linearsearch(int arr[], int n){
+    int number,count = 0;
+    printf("enter the element to be searched:");
+    scanf("%d",&number);
+    for(int i = 0; i < n; i++){
+        if(arr[i] == number){
+            count = count + 1;
+            printf("the number is in %dth position\n",i+1);
+        }
+    }
+    if(count < 1)
+        printf("no elements were found in the array");
+}
+  
+void secondlargestelement(int arr[], int n){
+    int max=0; 
+    int min=0;
+    max = arr[0];
+    min = arr[0];
+    for(int i = 0; i < n ; i++){
+        if(arr[i]==max || arr[i] == min)
+            continue;
+        else if(arr[i]>max)
+            max = arr[i];
+        else if(arr[i]<min)
+            min = arr[i];
+    }
+    int second;
+    second = arr[0];
+    for(int j = 0; j < n; j++){
+        if(arr[j] > min && arr[j] < max){
+            second = arr[j];
+            min = second;
+        }
+    }
+    printf("the second largest %d \n", second);
+}
+
+int* copyarray(int arr[],int n){
+    int* dest = malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++) 
+        dest[i] = arr[i];
+    return dest;
+}
+
+void removeduplicates(int arr[],int n){
+    int arr2[n];
+    int arr3[n];
+    int temp;
+    int count = 0;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(i == j || arr[i] != arr[j])
+                continue;
+            else if(arr[i] == arr[j] && j != temp){
+                arr2[count] = arr[i];
+                temp = j;
+                count++;
+            }
+        }
+    }
+    int count1 = 0;
+    for(int k = 0 ; k < n; k++){
+        if(arr2[k] != arr[k]){
+            arr3[k] = arr[k];
+            count1++;
+        }
+        else if(arr2[k] == arr[k] && count1 != 1){
+            arr3[k] = arr[k];
+            count1++;
+        }
+        else
+            continue;
+    }
+    displayarray(arr2,n);
+    printf("\n");
+}
