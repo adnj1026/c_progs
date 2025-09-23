@@ -31,7 +31,7 @@ int main(){
     printf("enter elements of array ");
     for(int i = 0; i<n; i++)
         scanf("%d",&arr[i]);
-    linearsearch(arr, n);
+    removeduplicates(arr, n);
     return 0;
 }
 void displayarray(int arr[], int n){
@@ -142,35 +142,33 @@ int* copyarray(int arr[],int n){
     return dest;
 }
 
+
 void removeduplicates(int arr[],int n){
-    int arr2[n];
-    int arr3[n];
     int temp;
-    int count = 0;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n ; i++){
         for(int j = 0; j < n; j++){
-            if(i == j || arr[i] != arr[j])
+            if(i == j)
                 continue;
-            else if(arr[i] == arr[j] && j != temp){
-                arr2[count] = arr[i];
-                temp = j;
-                count++;
+            else if(arr[i] == arr[j]){
+                arr[j] = -55;
             }
         }
     }
-    int count1 = 0;
-    for(int k = 0 ; k < n; k++){
-        if(arr2[k] != arr[k]){
-            arr3[k] = arr[k];
-            count1++;
-        }
-        else if(arr2[k] == arr[k] && count1 != 1){
-            arr3[k] = arr[k];
-            count1++;
-        }
-        else
-            continue;
+    int count = 0;
+    for(int i = 0; i < n ; i++){
+        if(arr[i] == -55)
+            count++;
     }
-    displayarray(arr2,n);
-    printf("\n");
+    int real = n - count;
+    int arr2[real];
+    int j = 0;
+    for(int i = 0; i < n; i++){
+        if(arr[i] != -55 && j < real){
+            arr2[j] = arr[i];
+            j++;
+        }
+            
+    }
+    displayarray(arr2,real);
+    printf("\n");  
 }
