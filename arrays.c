@@ -28,14 +28,15 @@ void mergetwoarrays(int arr1[],int n1,int arr2[],int n2);
 
 int main(){
     int n1,n2;
-    int arr1[n1],arr2[n2];
     printf("please enter the number of elements in the first array: ");
-    scanf("%d",n1);
+    scanf("%d",&n1);
+    int arr1[n1];
     printf("enter the elements of the first array: ");
     for(int i = 0; i < n1; i++)
         scanf("%d", &arr1[i]);
     printf("please enter the number of elements in the second array: ");
-    scanf("%d",n2);
+    scanf("%d",&n2);
+    int arr2[n2];
     printf("enter the elements of the second array: ");
     for(int i = 0; i < n2; i++)
         scanf("%d", &arr2[i]);
@@ -210,13 +211,10 @@ void removeduplicates(int arr[],int n){
 void mergetwoarrays(int arr1[], int n1, int arr2[], int n2){
     int total = n1 + n2;
     int totalarr[total];
-    for(int i = n1; i < total; i++){
-        for(int j = 0; j < n1; j++)
-            totalarr[i] = arr1[j];
-    for(int i = n2; i < total; i++){
-        for(int k = 0; k < n2; k++ )
-            totalarr[i] = arr2[k];
-    }
+    for(int i = 0; i < n1; i++)
+        totalarr[i] = arr1[i];
+    for(int j = 0; j < n2; j++)
+        totalarr[n1 + j] = arr2[j];
     displayarray(totalarr,total);
     printf("\n");  
 }
