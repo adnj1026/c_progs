@@ -15,6 +15,7 @@
 9. merge two arrys
 10. bubble sort
 11. selection sort
+12. frequency count of each element
 */
 
 void inputofanarray(void);
@@ -34,6 +35,7 @@ void selectionsort(int arr[],int n);
 int issorted(int arr[],int n);
 void standardbubblesort(int arr[], int n);
 void standard_selectionsort(int arr[], int n);
+void frequencycount(int arr[],int n);
 
 int main(){
     int n;
@@ -43,7 +45,7 @@ int main(){
     printf("enter elements of array ");
     for(int i = 0; i<n; i++)
         scanf("%d",&arr[i]);
-    standard_selectionsort(arr,n);
+    frequencycount(arr,n);
     return 0;
 }
 
@@ -188,13 +190,13 @@ void removeduplicates(int arr[],int n){
             if(i == j)
                 continue;
             else if(arr[i] == arr[j]){
-                arr[j] = -55;
+                arr[j] = -5555;
             }
         }
     }
     int count = 0;
     for(int i = 0; i < n ; i++){
-        if(arr[i] == -55)
+        if(arr[i] == -5555)
             count++;
     }
     int real = n - count;
@@ -303,4 +305,28 @@ void standard_selectionsort(int arr[], int n) {
         }
     }
     displayarray(arr,n);
+}
+
+void frequencycount(int arr[],int n){
+    int count = 1;
+    int temp;
+    int s[n];
+    for (int k = 0; k < n; k++)
+        s[k] = 0;
+    for(int i = 0; i <= n - 1; i++){
+        if(s[i] == 0)
+            s[i] = 1;
+        else    
+            continue;
+        for(int j = 0; j <= n - 1; j++){
+            if(arr[j] == arr[i] && s[j] == 0){
+                s[j] = 1;
+                count++;
+            }
+            
+        }
+        printf("the element %d appears %d times in the array\n",arr[i],count);
+        count = 1; 
+          
+    }
 }
