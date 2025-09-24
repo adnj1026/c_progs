@@ -11,6 +11,10 @@
 5. reverse an array
 6. search second largest element
 7. copy array(elements of one array to another
+8. remove duplicate elements
+9. merge two arrys
+10. bubble sort
+11. selection sort
 */
 
 void inputofanarray(void);
@@ -25,22 +29,17 @@ void secondlargestelement(int arr[], int n);
 void removeduplicates(int arr[],int n);
 int* copyarray(int arr[],int n);
 void mergetwoarrays(int arr1[],int n1,int arr2[],int n2);
+void bubblesort(int arr[],int n);
 
 int main(){
-    int n1,n2;
-    printf("please enter the number of elements in the first array: ");
-    scanf("%d",&n1);
-    int arr1[n1];
-    printf("enter the elements of the first array: ");
-    for(int i = 0; i < n1; i++)
-        scanf("%d", &arr1[i]);
-    printf("please enter the number of elements in the second array: ");
-    scanf("%d",&n2);
-    int arr2[n2];
-    printf("enter the elements of the second array: ");
-    for(int i = 0; i < n2; i++)
-        scanf("%d", &arr2[i]);
-    mergetwoarrays(arr1,n1,arr2,n2);
+    int n;
+    printf("enter no of elements of array ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("enter elements of array ");
+    for(int i = 0; i<n; i++)
+        scanf("%d",&arr[i]);
+    bubblesort(arr,n);
     return 0;
 }
 
@@ -217,4 +216,19 @@ void mergetwoarrays(int arr1[], int n1, int arr2[], int n2){
         totalarr[n1 + j] = arr2[j];
     displayarray(totalarr,total);
     printf("\n");  
+}
+
+void bubblesort(int arr[],int n){
+    int temp;
+    for(int i = 0; i < n; i++){
+        if(arr[i] > arr[i + 1]){
+            temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            //printf("loop %d \n",i);
+            //printf("arr[i] = %d \n",arr[i]);
+            //printf("arr[i + 1] = %d \n",arr[i + 1]);
+        }
+    }
+    displayarray(arr,n);
 }
