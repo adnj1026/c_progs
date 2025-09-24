@@ -30,6 +30,10 @@ void removeduplicates(int arr[],int n);
 int* copyarray(int arr[],int n);
 void mergetwoarrays(int arr1[],int n1,int arr2[],int n2);
 void bubblesort(int arr[],int n);
+void selectionsort(int arr[],int n);
+int issorted(int arr[],int n);
+void standardbubblesort(int arr[], int n);
+void standard_selectionsort(int arr[], int n);
 
 int main(){
     int n;
@@ -39,7 +43,7 @@ int main(){
     printf("enter elements of array ");
     for(int i = 0; i<n; i++)
         scanf("%d",&arr[i]);
-    bubblesort(arr,n);
+    standard_selectionsort(arr,n);
     return 0;
 }
 
@@ -218,16 +222,84 @@ void mergetwoarrays(int arr1[], int n1, int arr2[], int n2){
     printf("\n");  
 }
 
+int issorted(int arr[],int n){
+    for(int i = 0; i < n-1; i++){
+        if(arr[i] < arr[i + 1])
+            continue;
+        else
+            return 0;
+    }
+    return 1;
+}
 void bubblesort(int arr[],int n){
     int temp;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n - 1; i++){
         if(arr[i] > arr[i + 1]){
             temp = arr[i];
             arr[i] = arr[i + 1];
             arr[i + 1] = temp;
-            //printf("loop %d \n",i);
-            //printf("arr[i] = %d \n",arr[i]);
-            //printf("arr[i + 1] = %d \n",arr[i + 1]);
+        }
+    }
+    if(issorted(arr,n) == 1)
+        displayarray(arr,n);
+    else   
+        bubblesort(arr,n);
+}
+
+void standardbubblesort(int arr[], int n) {
+    int temp;
+    int swapped;
+    for (int pass = 0; pass < n - 1; pass++) {
+        swapped = 0;
+        for (int i = 0; i < n - pass - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = 1;
+            }
+        }
+        if (!swapped)   
+            break;
+    }
+    displayarray(arr, n);
+}
+
+
+void selectionsort(int arr[],int n){
+    int temp,min;
+    int count = 0;
+    for(int j = 0; j < n - 1; j++){
+        for(int i = j; i < n; i++){
+            if(arr[i] < arr[j]){
+                temp = arr[j];
+                arr[j] = arr[i]; 
+                arr[i] = temp;         
+            }    
+        }  
+    }
+    displayarray(arr,n);
+}
+
+void standard_selectionsort(int arr[], int n) {
+    int i, j, minIndex, temp;
+
+    for (i = 0; i < n - 1; i++) {
+        // assume the first element of unsorted part is the min
+        minIndex = i;
+
+        // find the index of the minimum element
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // swap the found minimum with arr[i]
+        if (minIndex != i) {
+            temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
         }
     }
     displayarray(arr,n);
