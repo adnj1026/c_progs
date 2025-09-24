@@ -38,14 +38,147 @@ void standard_selectionsort(int arr[], int n);
 void frequencycount(int arr[],int n);
 
 int main(){
+    int number;
     int n;
-    printf("enter no of elements of array ");
-    scanf("%d",&n);
     int arr[n];
-    printf("enter elements of array ");
-    for(int i = 0; i<n; i++)
-        scanf("%d",&arr[i]);
-    frequencycount(arr,n);
+    int n1,n2;
+    int arr1[n1],arr2[n2];
+    printf("welcome!!!!\n");
+    printf("please select the function you want to perform\n");
+    printf("1. display and output an array\n");
+    printf("2.read array elements and find their sum\n");
+    printf("3.find max and min in array\n");
+    printf("4.count even and odd numbers\n");
+    printf("5.reverse an array\n");
+    printf("6.search second largest element\n");
+    printf("7.remove duplicate elements\n");
+    printf("8.merge two arrys\n");
+    printf("9.bubble sort\n");
+    printf("10.selection sort\n");
+    printf("11.frequency count of each element\n");
+    printf("12.linear search\n");
+    printf("please select a number: ");
+    scanf("%d",&number);
+    switch(number){
+        case 1:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        displayarray(arr,n);
+        break;
+
+        case 2:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        arraysum(arr,n);
+        break;
+        
+        case 3:
+        int n;
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        maxandminarray(arr,n);
+        break;
+        
+        case 4:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        countevenandoddarray(arr,n);
+        break;
+
+        case 5:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        reversearray(arr,n);
+        break;
+
+        case 6:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        secondlargestelement(arr,n);
+        break;
+
+        case 7:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        removeduplicates(arr,n);
+        break;
+
+        case 8:
+        printf("please enter the number of elements in the first array: ");
+        scanf("%d",n1);
+        printf("enter the elements of the first array: ");
+        for(int i = 0; i < n1; i++)
+            scanf("%d", &arr1[i]);
+        printf("please enter the number of elements in the second array: ");
+            scanf("%d",n2);
+        printf("enter the elements of the second array: ");
+        for(int i = 0; i < n2; i++)
+            scanf("%d", &arr2[i]);
+        mergetwoarrays(arr1,n1,arr2,n2);
+        break;
+
+        case 9:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        bubblesort(arr,n);
+        break;
+
+        case 10:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        selectionsort(arr,n);
+        break;
+
+        case 11:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        frequencycount(arr,n);
+        break;
+
+        case 12:
+        printf("enter no of elements of array ");
+        scanf("%d",&n);
+        printf("enter elements of array ");
+        for(int i = 0; i<n; i++)
+            scanf("%d",&arr[i]);
+        linearsearch(arr,n);
+        break;
+
+        default:
+        printf("number is invalid ");
+        break;
+        
+    }
     return 0;
 }
 
