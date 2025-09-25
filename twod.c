@@ -12,6 +12,7 @@
 #include <stdlib.h>
 
 void displaymatrix(int r, int c, int matrix[][c]);
+void sumofelementsmatrix(int r, int c, int matrix[][c]);
 
 int main(){
     int c;
@@ -23,21 +24,31 @@ int main(){
     int matrix[r][c];
     printf("enter the elements of a matrix\n");
     for(int i = 0; i < r; i++){
+        printf("enter elements in the %d row: ",i);
         for(int j = 0; j < c; j++){
-            printf("enter %d column element in the %d row: ",j,i);
             scanf("%d",&matrix[i][j]);
         }
         printf("\n");
     }
-    displaymatrix(r,c,matrix);
+    sumofelementsmatrix(r,c,matrix);
     return 0;
 }
 
 void displaymatrix(int r, int c, int matrix[][c]){
     for(int i = 0; i < r; i++){
         for(int j = 0; j < c; j++){
-            printf("%d ",matrix[i][j]);
+            printf(" %d ",matrix[i][j]);
         }
-        printf("\n");
     }
+}
+
+
+void sumofelementsmatrix(int r, int c, int matrix[][c]){
+    int total = 0;
+    for(int i = 0; i < r; i++){
+        for(int j = 0; j < c; j++){
+            total = total + matrix[i][j];
+        }
+    }
+    printf("the total of all elements is %d",total);
 }
