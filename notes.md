@@ -1,0 +1,4 @@
+-> Apart from the sense of satisfaction of pushing an updated code to "main", I also feel the need to add some notes about the things I learnt from here on.
+-> Having an account of my learnings will be a useful; to keep track and update my views on this subject.
+->Hence I have ventured to create this file.
+->Since I being novice am unsure how really "blogs" are carried out here. This editor though feels good to write, does not have the same environment a WORD file has. THis perhaps I have to get used to this. 
