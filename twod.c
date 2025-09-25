@@ -13,8 +13,48 @@
 
 void displaymatrix(int r, int c, int matrix[][c]);
 void sumofelementsmatrix(int r, int c, int matrix[][c]);
+void inputanarray(void);
+void inputtwoarrays(void);
+void additionofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][c]);
 
 int main(){
+    printf("FIRST MATRIX\n");
+    int c;
+    printf("enter number of columns : ");
+    scanf("%d",&c);
+    int r;
+    printf("enter number of rows : ");
+    scanf("%d",&r); 
+    int m1[r][c];
+    printf("enter the elements of a matrix\n");
+    for(int i = 0; i < r; i++){
+        printf("enter elements in the %d row: ",i);
+        for(int j = 0; j < c; j++){
+            scanf("%d",&m1[i][j]);
+        }
+        printf("\n");
+    }
+    printf("SECOND MATRIX\n");
+    int p;
+    printf("enter number of columns : ");
+    scanf("%d",&p);
+    int q;
+    printf("enter number of rows : ");
+    scanf("%d",&q); 
+    int m2[p][q];
+    printf("enter the elements of a matrix\n");
+    for(int i = 0; i < q; i++){
+        printf("enter elements in the %d row: ",i);
+        for(int j = 0; j < p; j++){
+            scanf("%d",&m2[i][j]);
+        }
+        printf("\n");
+    }
+    additionofmatrices(r,c,m1,p,q,m2);
+    return 0;
+}
+
+void inputanarray(void){
     int c;
     printf("enter number of columns : ");
     scanf("%d",&c);
@@ -30,8 +70,40 @@ int main(){
         }
         printf("\n");
     }
-    sumofelementsmatrix(r,c,matrix);
-    return 0;
+}
+void inputtwoarrays(void){
+    printf("FIRST MATRIX\n");
+    int c;
+    printf("enter number of columns : ");
+    scanf("%d",&c);
+    int r;
+    printf("enter number of rows : ");
+    scanf("%d",&r); 
+    int m1[r][c];
+    printf("enter the elements of a matrix\n");
+    for(int i = 0; i < r; i++){
+        printf("enter elements in the %d row: ",i);
+        for(int j = 0; j < c; j++){
+            scanf("%d",&m1[i][j]);
+        }
+        printf("\n");
+    }
+    printf("SECOND MATRIX");
+    int q;
+    printf("enter number of columns : ");
+    scanf("%d",&q);
+    int p;
+    printf("enter number of rows : ");
+    scanf("%d",&p); 
+    int m2[p][q];
+    printf("enter the elements of a matrix\n");
+    for(int i = 0; i < p; i++){
+        printf("enter elements in the %d row: ",i);
+        for(int j = 0; j < q; j++){
+            scanf("%d",&m2[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 void displaymatrix(int r, int c, int matrix[][c]){
@@ -39,6 +111,7 @@ void displaymatrix(int r, int c, int matrix[][c]){
         for(int j = 0; j < c; j++){
             printf(" %d ",matrix[i][j]);
         }
+        printf("\n");
     }
 }
 
@@ -51,4 +124,19 @@ void sumofelementsmatrix(int r, int c, int matrix[][c]){
         }
     }
     printf("the total of all elements is %d",total);
+}
+
+void additionofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][c]){
+    int total[r][c];
+    if( r == p && c == q){
+        for(int i = 0; i < r; i++){
+            for(int j = 0; j < r; j++){
+                total[i][j] = m1[i][j] + m2[i][j];
+            }
+        }
+    }
+    else
+        printf("the function cannot be done");
+    printf("the addtion matrix:\n");
+    displaymatrix(r,c,total);
 }
