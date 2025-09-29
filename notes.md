@@ -2,3 +2,6 @@
 -> Having an account of my learnings will be a useful; to keep track and update my views on this subject.
 ->Hence I have ventured to create this file.
 ->Since I being novice am unsure how really "blogs" are carried out here. This editor though feels good to write, does not have the same environment a WORD file has. THis perhaps I have to get used to this. 
+
+
+-> yoo i have been very clumsy about my git hub streak and i feel a tad bit guilty of it until i recover from it all. i have been pushing my deadlines and my head is aching. A time where there is nothing but ambiguity and pain, I have a beautiful life filled with rich rapturous feeling of liberation, piercing everytime i am invited to a social gathering.
