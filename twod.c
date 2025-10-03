@@ -16,6 +16,7 @@ void sumofelementsmatrix(int r, int c, int matrix[][c]);
 void inputanarray(void);
 void inputtwoarrays(void);
 void additionofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][c]);
+void multiplicationofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][c]);
 
 int main(){
     printf("FIRST MATRIX\n");
@@ -35,22 +36,22 @@ int main(){
         printf("\n");
     }
     printf("SECOND MATRIX\n");
-    int p;
-    printf("enter number of columns : ");
-    scanf("%d",&p);
     int q;
+    printf("enter number of columns : ");
+    scanf("%d",&q);
+    int p;
     printf("enter number of rows : ");
-    scanf("%d",&q); 
+    scanf("%d",&p); 
     int m2[p][q];
     printf("enter the elements of a matrix\n");
-    for(int i = 0; i < q; i++){
+    for(int i = 0; i < p; i++){
         printf("enter elements in the %d row: ",i);
-        for(int j = 0; j < p; j++){
+        for(int j = 0; j < q; j++){
             scanf("%d",&m2[i][j]);
         }
         printf("\n");
     }
-    additionofmatrices(r,c,m1,p,q,m2);
+    multiplicationofmatrices(r,c,m1,p,q,m2);
     return 0;
 }
 
@@ -126,7 +127,7 @@ void sumofelementsmatrix(int r, int c, int matrix[][c]){
     printf("the total of all elements is %d",total);
 }
 
-void additionofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][c]){
+void additionofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][q]){
     int total[r][c];
     if( r == p && c == q){
         for(int i = 0; i < r; i++){
@@ -139,4 +140,24 @@ void additionofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][c]){
         printf("the function cannot be done");
     printf("the addtion matrix:\n");
     displaymatrix(r,c,total);
+}
+
+void multiplicationofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][q]){
+    int total[r][q];
+    if( p == c){
+        for(int i = 0; i < r; i++ ){
+            for(int j = 0; j < q; j++){
+                total[i][j] = 0;
+                for(int k = 0; k < p; k++ ){
+                    total[i][j] += (m1[i][k] * m2[k][j]);
+                }
+            }
+        }
+        
+        printf("the mutiplicaton matrix:\n");
+        displaymatrix(r,q,total);
+    }
+    else
+        printf("the function cannot be done\n");
+    
 }
