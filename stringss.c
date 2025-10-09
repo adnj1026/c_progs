@@ -52,7 +52,7 @@ void copyastring(char source[],char dest[]);
 
 int main(){
     char *str = NULL;
-    char* dest = NULL;
+    char dest[20];
     int size = 0;
     int ch;
 
@@ -123,8 +123,9 @@ int lenghtofstring(char str[]){
 
 void copyastring(char source[],char dest[]){
     int len = lenghtofstring(source);
-    char dest[len];
-    for(int i = 0; i < len ; i ++){
+    int len1 = lenghtofstring(dest);
+    //char dest[len];
+    for(int i = 0; i <= len ; i ++){
         dest[i] = source[i];
     }
     printf("the copied string is %s",dest);
