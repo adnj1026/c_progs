@@ -47,35 +47,103 @@ hard progs:
 
 void stringinputdynamic(void);
 void basicstringinput(void);
+void input2strings(void);
 int lenghtofstring(char str[]);
 void copyastring(char source[],char dest[]);
+void concatenatestrings(char str1[],char str2[]);
 
 int main(){
-    char *str = NULL;
-    char dest[20];
+    char *str1 = NULL;
     int size = 0;
     int ch;
 
-    printf("Enter a string: ");
+    printf("Enter fisrt string: ");
 
     while ((ch = getchar()) != '\n' && ch != EOF) {
-        char *temp = realloc(str, size + 2); 
+        char *temp = realloc(str1, size + 2); 
         if (temp == NULL) {
-            free(str);
+            free(str1);
             printf("Memory allocation failed!\n");
             return 1;
         }
-        str = temp;
-        str[size++] = (char)ch;
+        str1 = temp;
+        str1[size++] = (char)ch;
     }
-    if (str == NULL) {
+    if (str1 == NULL) {
         printf("No input entered.\n");
         return 0;
     }
-    str[size] = '\0'; 
-    copyastring(str,dest);
-    free(str);
+    str1[size] = '\0'; 
+
+    char *str2 = NULL;
+    int size2 = 0;
+    int ch2;
+    printf("Enter second string: ");
+    while ((ch2 = getchar()) != '\n' && ch2 != EOF) {
+        char *temp = realloc(str2, size2 + 2); 
+        if (temp == NULL) {
+            free(str2);
+            printf("Memory allocation failed!\n");
+            return 1;
+        }
+        str2 = temp;
+        str2[size2++] = (char)ch2;
+    }
+    if (str2 == NULL) {
+        printf("No input entered.\n");
+        return 0;
+    }
+    str2[size2] = '\0'; 
+    concatenatestrings(str1,str2);
+    free(str1);
+    free(str2);
     return 0;
+}
+// for my reference
+void input2strings(void){
+    char *str1 = NULL;
+    int size = 0;
+    int ch;
+
+    printf("Enter fisrt string: ");
+
+    while ((ch = getchar()) != '\n' && ch != EOF) {
+        char *temp = realloc(str1, size + 2); 
+        if (temp == NULL) {
+            free(str1);
+            printf("Memory allocation failed!\n");
+            //return 1;
+        }
+        str1 = temp;
+        str1[size++] = (char)ch;
+    }
+    if (str1 == NULL) {
+        printf("No input entered.\n");
+        //return 0;
+    }
+    str1[size] = '\0'; 
+
+    char *str2 = NULL;
+    int size2 = 0;
+    int ch2;
+    printf("Enter second string: ");
+    while ((ch2 = getchar()) != '\n' && ch2 != EOF) {
+        char *temp = realloc(str2, size2 + 2); 
+        if (temp == NULL) {
+            free(str2);
+            printf("Memory allocation failed!\n");
+            //return 1;
+        }
+        str2 = temp;
+        str2[size2++] = (char)ch2;
+    }
+    if (str2 == NULL) {
+        printf("No input entered.\n");
+        //return 0;
+    }
+    str2[size] = '\0'; 
+    free(str1);
+    free(str2);
 }
 //for my reference
 void stringinputdynamic(void){
@@ -130,5 +198,22 @@ void copyastring(char source[],char dest[]){
     }
     printf("the copied string is %s",dest);
 
+}
+
+void concatenatestrings(char str1[],char str2[]){
+    int len1 = lenghtofstring(str1);
+    int len2 = lenghtofstring(str2);
+    char con[len1+len2];
+    int j = 0;
+    for(int i = 0; i < (len1+len2); i++){
+        if(i < len1){
+            con[i] = str1[i];
+        }
+        else{
+            con[len1 + j] = str2[j];
+            j++;
+        }
+    }
+    printf("the string is %s",con);
 }
 
