@@ -9,7 +9,7 @@
 1. return the length of a string
 2. copy a string
 3. concatenate strings
-4. comapare strings
+4. compare strings
 5. copy n characters from destination to source
 6. concatenate n characters from destination to source
 7. first occurance of a character in the string
@@ -51,6 +51,7 @@ void input2strings(void);
 int lenghtofstring(char str[]);
 void copyastring(char source[],char dest[]);
 void concatenatestrings(char str1[],char str2[]);
+void comparestrings(char str1[],char str2[]);
 
 int main(){
     char *str1 = NULL;
@@ -94,7 +95,7 @@ int main(){
         return 0;
     }
     str2[size2] = '\0'; 
-    concatenatestrings(str1,str2);
+    comparestrings(str1,str2);
     free(str1);
     free(str2);
     return 0;
@@ -215,5 +216,25 @@ void concatenatestrings(char str1[],char str2[]){
         }
     }
     printf("the string is %s",con);
+}
+
+
+void comparestrings(char str1[],char str2[]){
+    int len1 = lenghtofstring(str1);
+    int len2 = lenghtofstring(str2);
+    if(len1 == len2){
+        for(int i = 0; i < len1; i++){
+            if(str1[i] != str2[i]){
+                printf("two strings are not the same\n");
+                break;
+            }
+            else{
+                printf("the two strings are the same");
+                break;
+            }
+        }
+    }
+    else
+        printf("the two strings are not the same");
 }
 
