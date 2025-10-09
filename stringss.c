@@ -53,13 +53,14 @@ void copyastring(char source[],char dest[]);
 void concatenatestrings(char str1[],char str2[]);
 void comparestrings(char str1[],char str2[]);
 void stringcopyy(char src[],char dest[],int n);
+void stringconcat(char src[], char dest[], int n);
 
 int main(){
     char str[20] = "shata teri";
-    char dest[20];
+    char dest[20] = "karma kanda";
     int n = 5;
     /*************************************************/
-    stringcopyy(str,dest,n);
+    stringconcat(str,dest,n);
     /*************************************************/
    
     return 0;
@@ -169,6 +170,7 @@ void concatenatestrings(char str1[],char str2[]){
     int len1 = lenghtofstring(str1);
     int len2 = lenghtofstring(str2);
     char con[len1+len2];
+    //con = [len1+len2] = '\0';
     int j = 0;
     for(int i = 0; i < (len1+len2); i++){
         if(i < len1){
@@ -213,3 +215,16 @@ void stringcopyy(char src[],char dest[],int n){
     printf("%s ",dest);
 }
 
+void stringconcat(char src[], char dest[], int n){
+    int len1 = lenghtofstring(src);
+    int len2 = lenghtofstring(dest);
+    int i = 0;
+    if(n < len1)
+        src[n] = '\0';
+    else
+        printf("cannot be performed");
+    printf("%s \n",src);
+    printf("%s \n",dest);
+    concatenatestrings(dest,src);
+
+}  
