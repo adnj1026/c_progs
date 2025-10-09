@@ -52,52 +52,16 @@ int lenghtofstring(char str[]);
 void copyastring(char source[],char dest[]);
 void concatenatestrings(char str1[],char str2[]);
 void comparestrings(char str1[],char str2[]);
+void stringcopyy(char src[],char dest[],int n);
 
 int main(){
-    char *str1 = NULL;
-    int size = 0;
-    int ch;
-
-    printf("Enter fisrt string: ");
-
-    while ((ch = getchar()) != '\n' && ch != EOF) {
-        char *temp = realloc(str1, size + 2); 
-        if (temp == NULL) {
-            free(str1);
-            printf("Memory allocation failed!\n");
-            return 1;
-        }
-        str1 = temp;
-        str1[size++] = (char)ch;
-    }
-    if (str1 == NULL) {
-        printf("No input entered.\n");
-        return 0;
-    }
-    str1[size] = '\0'; 
-
-    char *str2 = NULL;
-    int size2 = 0;
-    int ch2;
-    printf("Enter second string: ");
-    while ((ch2 = getchar()) != '\n' && ch2 != EOF) {
-        char *temp = realloc(str2, size2 + 2); 
-        if (temp == NULL) {
-            free(str2);
-            printf("Memory allocation failed!\n");
-            return 1;
-        }
-        str2 = temp;
-        str2[size2++] = (char)ch2;
-    }
-    if (str2 == NULL) {
-        printf("No input entered.\n");
-        return 0;
-    }
-    str2[size2] = '\0'; 
-    comparestrings(str1,str2);
-    free(str1);
-    free(str2);
+    char str[20] = "shata teri";
+    char dest[20];
+    int n = 5;
+    /*************************************************/
+    stringcopyy(str,dest,n);
+    /*************************************************/
+   
     return 0;
 }
 // for my reference
@@ -236,5 +200,16 @@ void comparestrings(char str1[],char str2[]){
     }
     else
         printf("the two strings are not the same");
+}
+
+void stringcopyy(char src[],char dest[],int n){
+    int len1 = lenghtofstring(src);
+    int i = 0;
+    while(i < n){
+        dest[i] = src[i];
+        i++;
+    }
+    dest[n] = '\0';
+    printf("%s ",dest);
 }
 
