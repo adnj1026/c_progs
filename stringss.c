@@ -54,6 +54,7 @@ void concatenatestrings(char str1[],char str2[]);
 void comparestrings(char str1[],char str2[]);
 void stringcopyy(char src[],char dest[],int n);
 void stringconcat(char src[], char dest[], int n);
+void firstoccuranceinstring(int str[],int c);
 
 int main(){
     char str[20] = "shata teri";
@@ -227,4 +228,5 @@ void stringconcat(char src[], char dest[], int n){
     printf("%s \n",dest);
     concatenatestrings(dest,src);
 
-}  
+}
+
