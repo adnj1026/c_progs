@@ -54,14 +54,14 @@ void concatenatestrings(char str1[],char str2[]);
 void comparestrings(char str1[],char str2[]);
 void stringcopyy(char src[],char dest[],int n);
 void stringconcat(char src[], char dest[], int n);
-void firstoccuranceinstring(int str[],int c);
+void firstoccuranceinstring(char str[],int c);
 
 int main(){
     char str[20] = "shata teri";
     char dest[20] = "karma kanda";
-    int n = 'A';
+    int n = 'a';
     /*************************************************/
-    firstoccuranceinstring(str,'n');
+    firstoccuranceinstring(str,n);
     /*************************************************/
    
     return 0;
@@ -234,9 +234,14 @@ void firstoccuranceinstring(char str[],int c){
     int len1 = lenghtofstring(str);
     int i = 0;
     while(i < len1){
-        if(str[i] = c)
+        //printf("str[%d] = %c \n",i,str[i]);
+        //printf("%d\n",c);
+        if(str[i] == c){
+            //printf("str[%d] = %c \n",i,str[i]); 
+            //printf("the first occurance of the character is in the %d position\n",i); 
             break;
+        }
         i++;
     }
-    printf("the first occurance of the character is in the %d position",i); 
+    printf("the first occurance of the character is in the %d position\n",i);
 }
