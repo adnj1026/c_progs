@@ -59,9 +59,9 @@ void firstoccuranceinstring(int str[],int c);
 int main(){
     char str[20] = "shata teri";
     char dest[20] = "karma kanda";
-    int n = 5;
+    int n = 'A';
     /*************************************************/
-    stringconcat(str,dest,n);
+    firstoccuranceinstring(str,'n');
     /*************************************************/
    
     return 0;
@@ -230,3 +230,13 @@ void stringconcat(char src[], char dest[], int n){
 
 }
 
+void firstoccuranceinstring(char str[],int c){
+    int len1 = lenghtofstring(str);
+    int i = 0;
+    while(i < len1){
+        if(str[i] = c)
+            break;
+        i++;
+    }
+    printf("the first occurance of the character is in the %d position",i); 
+}
