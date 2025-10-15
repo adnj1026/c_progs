@@ -59,9 +59,9 @@ void firstoccuranceinstring(char str[],int c);
 int main(){
     char str[20] = "shata teri";
     char dest[20] = "karma kanda";
-    int n = 'a';
+    int n = 'n';
     /*************************************************/
-    firstoccuranceinstring(str,n);
+    firstoccuranceinstring(dest,n);
     /*************************************************/
    
     return 0;
@@ -243,5 +243,5 @@ void firstoccuranceinstring(char str[],int c){
         }
         i++;
     }
-    printf("the first occurance of the character is in the %d position\n",i);
+    printf("the first occurance of the character is in the %d position\n",i+1);
 }
