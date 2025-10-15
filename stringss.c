@@ -55,13 +55,15 @@ void comparestrings(char str1[],char str2[]);
 void stringcopyy(char src[],char dest[],int n);
 void stringconcat(char src[], char dest[], int n);
 void firstoccuranceinstring(char str[],int c);
+void firstoccurancesubstring(char str[],char str1[]);
+void uppertolowercase(char str[]);
 
 int main(){
     char str[20] = "shata teri";
-    char dest[20] = "karma kanda";
-    int n = 'n';
+    char dest[20] = "aohfkjhsdkjfhndaoi";
+    char n[20] = "aoi";
     /*************************************************/
-    firstoccuranceinstring(dest,n);
+    uppertolowercase(dest);
     /*************************************************/
    
     return 0;
@@ -234,14 +236,44 @@ void firstoccuranceinstring(char str[],int c){
     int len1 = lenghtofstring(str);
     int i = 0;
     while(i < len1){
-        //printf("str[%d] = %c \n",i,str[i]);
-        //printf("%d\n",c);
-        if(str[i] == c){
-            //printf("str[%d] = %c \n",i,str[i]); 
-            //printf("the first occurance of the character is in the %d position\n",i); 
+        if(str[i] == c)
             break;
-        }
         i++;
     }
     printf("the first occurance of the character is in the %d position\n",i+1);
+}
+
+void firstoccurancesubstring(char str[],char str1[]){
+    int len1 = lenghtofstring(str);
+    int len2 = lenghtofstring(str1);
+    int i = 0,k = 0,j = 0;
+    while(i < len1){
+        if(str[i] != str1[k] ){
+            i++;
+        }
+        else{
+            if(k == len2-1){
+                printf("the substring starts at the %d position\n",i - len2 + 2);
+                break;
+            }
+            k++;
+            i++;
+        }
+    }
+}
+
+void uppertolowercase(char str[]){
+    int len = lenghtofstring(str);
+    for(int i = 97; i <= 122; i++){
+        //printf("the str[j] = %c\n",str[j]);
+        for(int j = 0; j < len; j++ ){
+            //printf("the str[j] = %d\n",str[j]);
+            if((int)str[j] == i){
+                printf("before replacing str[j] = %c\n",str[j]);
+                str[j] = 65 + j;
+                printf("before replacing str[j] = %c\n",str[j]);
+            }
+        }
+    }
+    //printf("the modified string is %s",str);
 }
