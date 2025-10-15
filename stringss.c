@@ -57,13 +57,14 @@ void stringconcat(char src[], char dest[], int n);
 void firstoccuranceinstring(char str[],int c);
 void firstoccurancesubstring(char str[],char str1[]);
 void uppertolowercase(char str[]);
+void countallthings(char str[]);
 
 int main(){
     char str[20] = "shata teri";
     char dest[20] = "aohfkjhsdkjfhndaoi";
     char n[20] = "aoi";
     /*************************************************/
-    uppertolowercase(dest);
+    countallthings(dest);
     /*************************************************/
    
     return 0;
@@ -264,16 +265,14 @@ void firstoccurancesubstring(char str[],char str1[]){
 
 void uppertolowercase(char str[]){
     int len = lenghtofstring(str);
-    for(int i = 97; i <= 122; i++){
-        //printf("the str[j] = %c\n",str[j]);
-        for(int j = 0; j < len; j++ ){
-            //printf("the str[j] = %d\n",str[j]);
-            if((int)str[j] == i){
-                printf("before replacing str[j] = %c\n",str[j]);
-                str[j] = 65 + j;
-                printf("before replacing str[j] = %c\n",str[j]);
-            }
-        }
+    int i = 0;
+    while(str[i] >= 97 && str[i] <= 122){
+        str[i] = str[i] - 32;
+        i++;
     }
-    //printf("the modified string is %s",str);
+    printf("the modified string is %s",str);
+}
+
+void countallthings(char str[]){
+    int v=0,d=0,s=0,c=0;
 }
