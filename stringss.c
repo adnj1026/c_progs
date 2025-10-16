@@ -59,13 +59,15 @@ void firstoccurancesubstring(char str[],char str1[]);
 void uppertolowercase(char str[]);
 void countallthings(char str[]);
 void countwords(char str[]);
-
+void reversestring(char str[]);
+void palindromestring(char str[]);
 int main(){
     char str[40] = "shata teri 54 nkn loafer chapper";
     char dest[20] = "aohfkjhsdkjfhndaoi";
     char n[20] = "aoi";
+    char strr[40] = "aneesh";
     /*************************************************/
-    countwords(str);
+    palindromestring(strr);
     /*************************************************/
    
     return 0;
@@ -303,4 +305,58 @@ void countwords(char str[]){
             words++;
     }
     printf("the number of words are %d\n",words);
+}
+
+void reversestring(char str[]){
+    int len = lenghtofstring(str);
+    int temp;
+    if(len % 2 == 0){
+        for(int i = 0; i < (len/2); i++){
+            temp = str[i];
+            str[i] = str[len - 1 - i];
+            str[len - 1 - i] = temp;
+        }
+    }
+    else{
+        for(int i = 0; i < ((len-1)/2); i++){
+            temp = str[i];
+            str[i] = str[len - 1 - i];
+            str[len - 1 - i] = temp;
+        }
+    }
+    printf("the reversed string is: %s\n",str);
+}
+
+void palindromestring(char str[]){
+    int len = lenghtofstring(str);
+    int temp;
+    if(len % 2 == 0){
+        for(int i = 0; i < (len/2); i++){
+            if(str[i] != str[len - 1 - i]){
+                printf("the string is not a palindrome");
+                break;
+            }
+            else{
+                if(i == (len/2)-1)
+                    printf("it is a palindrome");
+                else 
+                    continue;
+            }
+        }
+    }
+
+    else{
+        for(int i = 0; i < ((len-1)/2); i++){
+            if(str[i] != str[len - 1 - i]){
+                printf("the string is not a palindrome");
+                break;
+            }
+            else{
+                if(i == ((len-1)/2)-1)
+                    printf("it is a palindrome");
+                else 
+                    continue;
+            }
+        }
+    }
 }
