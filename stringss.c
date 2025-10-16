@@ -58,13 +58,14 @@ void firstoccuranceinstring(char str[],int c);
 void firstoccurancesubstring(char str[],char str1[]);
 void uppertolowercase(char str[]);
 void countallthings(char str[]);
+void countwords(char str[]);
 
 int main(){
-    char str[20] = "shata teri";
+    char str[40] = "shata teri 54 nkn loafer chapper";
     char dest[20] = "aohfkjhsdkjfhndaoi";
     char n[20] = "aoi";
     /*************************************************/
-    countallthings(dest);
+    countwords(str);
     /*************************************************/
    
     return 0;
@@ -274,5 +275,32 @@ void uppertolowercase(char str[]){
 }
 
 void countallthings(char str[]){
-    int v=0,d=0,s=0,c=0;
+    int vowels=0,digits=0,space=0,consonants=0;
+    int len = lenghtofstring(str);
+    for(int i = 0; i < len; i++){
+        if(str[i] == 32)
+            space++;
+        else if(str[i] >= 48 && str[i] <= 57)
+            digits++;
+        else if(str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U')
+            vowels++;
+        else if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u')
+            vowels++;
+        else 
+            consonants++;
+    }
+    printf("digits = %d\n",digits);
+    printf("spaces = %d\n",space);
+    printf("vowels = %d\n",vowels);
+    printf("consonant = %d\n",consonants);
+}
+
+void countwords(char str[]){
+    int words = 0;
+    int len = lenghtofstring(str);
+    for(int i = 0; i <= len; i++){
+        if(str[i] == 32 || str[i] == '\0')
+            words++;
+    }
+    printf("the number of words are %d\n",words);
 }
