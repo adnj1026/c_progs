@@ -62,13 +62,14 @@ void countwords(char str[]);
 void reversestring(char str[]);
 void palindromestring(char str[]);
 void removeallspaces(char str[]);
+void frequencyofcharacters(char str[]);
 int main(){
     char str[40] = "shata teri 54 nkn loafer chapper bruh  c";
-    char dest[20] = "aohfkjhsdkjfhndaoi";
+    char dest[20] = "aohfkjhsdkjfhndaoiz";
     char n[20] = "aoi";
     char strr[50] = "aneesh datta nagaraju jois  c blha damm   ";
     /*************************************************/
-    removeallspaces(strr);
+    frequencyofcharacters(dest);
     /*************************************************/
    
     return 0;
@@ -378,4 +379,19 @@ void removeallspaces(char str[]){
     }
     strr[k] = '\0';
     printf("the string with removed spaces is %s\n",strr);
+}
+
+void frequencyofcharacters(char str[]){
+    int len = lenghtofstring(str);
+    int i = 95,j = 0,count = 0;
+    while(i >= 95 && i <= 122){
+        printf("the element %c apprears %d times \n",i,count);
+        count = 0;
+        while(str[j] != '\0' && i == str[j]){
+            count++;
+            j++;
+        }
+        i++;
+    }
+
 }
