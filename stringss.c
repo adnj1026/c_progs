@@ -61,13 +61,14 @@ void countallthings(char str[]);
 void countwords(char str[]);
 void reversestring(char str[]);
 void palindromestring(char str[]);
+void removeallspaces(char str[]);
 int main(){
-    char str[40] = "shata teri 54 nkn loafer chapper";
+    char str[40] = "shata teri 54 nkn loafer chapper bruh  c";
     char dest[20] = "aohfkjhsdkjfhndaoi";
     char n[20] = "aoi";
-    char strr[40] = "aneesh";
+    char strr[50] = "aneesh datta nagaraju jois  c blha damm   ";
     /*************************************************/
-    palindromestring(strr);
+    removeallspaces(strr);
     /*************************************************/
    
     return 0;
@@ -359,4 +360,22 @@ void palindromestring(char str[]){
             }
         }
     }
+}
+
+void removeallspaces(char str[]){
+    int len = lenghtofstring(str);
+    char strr[len];
+    int i = 0;
+    int k = 0;
+    while(i < len){
+        if(str[i] != 32){
+            strr[k] = str[i];
+            k++;
+            i++;
+        }
+        else
+            i++;
+    }
+    strr[k] = '\0';
+    printf("the string with removed spaces is %s\n",strr);
 }
