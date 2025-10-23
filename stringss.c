@@ -63,13 +63,14 @@ void reversestring(char str[]);
 void palindromestring(char str[]);
 void removeallspaces(char str[]);
 void frequencyofcharacters(char str[]);
+void removeduplicates(char str[]);
 int main(){
-    char str[40] = "shata teri 54 nkn loafer chapper bruh  c";
-    char dest[20] = "aohfkjhsdkjfhndaoiz";
+    char str[40] = "aneesh";
+    char dest[100] = "abcdefghijklmnopqrstuvwxyz";
     char n[20] = "aoi";
-    char strr[50] = "aneesh datta nagaraju jois  c blha damm   ";
+    char strr[50] = "aneeshdattanagarajujoiscblhadamm";
     /*************************************************/
-    frequencyofcharacters(dest);
+    removeduplicates(strr);
     /*************************************************/
    
     return 0;
@@ -383,15 +384,55 @@ void removeallspaces(char str[]){
 
 void frequencyofcharacters(char str[]){
     int len = lenghtofstring(str);
-    int i = 95,j = 0,count = 0;
-    while(i >= 95 && i <= 122){
-        printf("the element %c apprears %d times \n",i,count);
-        count = 0;
-        while(str[j] != '\0' && i == str[j]){
-            count++;
+    int i = 97,j = 0,count = 0;
+    while(i >= 97 && i <= 122){
+        while(j <= (len - 1)){
+            if(str[j] == i)
+                count++;
             j++;
         }
+        if(count != 0)
+            printf("the element %c is repeated %d times\n",i,count);
         i++;
+        count = 0;
+        j = 0;
     }
+}
 
+void removeduplicates(char str[]){
+    int len = lenghtofstring(str);
+    int count = 0,k = 0, l = 0, j = 0,m = 0;
+    char strr[len];
+    char temp[len];
+    strr[len] = '\0';
+    while(j < len){
+        count = 0;
+        l = 0;
+        while(l < len){
+            if(str[j] == str[l]){
+                count++;
+                l++;
+                
+            }
+            else 
+                l++;
+        }
+        
+        if(count > 1){
+            temp[m] = str[j];
+            m++;
+        }
+        if(count == 1){
+            strr[k] = str[j];
+            k++;
+        }
+        
+    j++;   
+    }
+    if(len != k){
+        strr[k] = '\0';
+        temp[m] = '\0';
+    }
+    printf("new string with removed dups: %s\n",strr);
+    //printf("string dups: %s\n",temp);
 }
