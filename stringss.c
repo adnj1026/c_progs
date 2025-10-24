@@ -61,14 +61,14 @@ void countallthings(char str[]);
 void countwords(char str[]);
 void reversestring(char str[]);
 void palindromestring(char str[]);
-void removeallspaces(char str[]);
-void frequencyofcharacters(char str[]);
+char* removeallspaces(char str[]);
+int frequencyofcharacters(char str[], char c);
 void removeduplicates(char str[]);
 int main(){
     char str[40] = "aneesh";
     char dest[100] = "abcdefghijklmnopqrstuvwxyz";
     char n[20] = "aoi";
-    char strr[50] = "aneeshdattanagarajujoiscblhadamm";
+    char strr[50] = "aneesh datta nagaraju jois";
     /*************************************************/
     removeduplicates(strr);
     /*************************************************/
@@ -364,75 +364,56 @@ void palindromestring(char str[]){
     }
 }
 
-void removeallspaces(char str[]){
+char* removeallspaces(char str[]) {
     int len = lenghtofstring(str);
-    char strr[len];
-    int i = 0;
-    int k = 0;
-    while(i < len){
-        if(str[i] != 32){
-            strr[k] = str[i];
-            k++;
-            i++;
+    char *strr = malloc((len + 1) * sizeof(char));  // +1 for '\0'
+    if (strr == NULL) return NULL;                  // always check malloc
+
+    int i = 0, k = 0;
+    while (i < len) {
+        if (str[i] != ' ') {  // 32 is fine too
+            strr[k++] = str[i];
         }
-        else
-            i++;
+        i++;
     }
     strr[k] = '\0';
-    printf("the string with removed spaces is %s\n",strr);
+    return strr;  // safe to return
 }
 
-void frequencyofcharacters(char str[]){
+int frequencyofcharacters(char str[], char c){
     int len = lenghtofstring(str);
-    int i = 97,j = 0,count = 0;
-    while(i >= 97 && i <= 122){
-        while(j <= (len - 1)){
-            if(str[j] == i)
-                count++;
-            j++;
+    int count = 0, i = 0;
+    while(i < len){
+        if(str[i] == c){
+            count++;
+            i++;
         }
-        if(count != 0)
-            printf("the element %c is repeated %d times\n",i,count);
-        i++;
-        count = 0;
-        j = 0;
+        else{
+            i++;
+        }
     }
+    return count;
 }
 
 void removeduplicates(char str[]){
     int len = lenghtofstring(str);
-    int count = 0,k = 0, l = 0, j = 0,m = 0;
+    int count = 0,k = 0, a = 0,c = 0;
     char strr[len];
-    char temp[len];
-    strr[len] = '\0';
-    while(j < len){
-        count = 0;
-        l = 0;
-        while(l < len){
-            if(str[j] == str[l]){
-                count++;
-                l++;
-                
-            }
-            else 
-                l++;
-        }
-        
-        if(count > 1){
-            temp[m] = str[j];
-            m++;
-        }
+    for(int i = 0; i < len; i++){
+        count = frequencyofcharacters(str,str[i]);
         if(count == 1){
-            strr[k] = str[j];
+            strr[k] = str[i];
             k++;
+            strr[k] = '\0';
         }
-        
-    j++;   
+        else{
+            if(frequencyofcharacters(strr,str[i]) < 1){
+                strr[k] = str[i];
+                k++;
+                strr[k] = '\0';
+            }
+        }
     }
-    if(len != k){
-        strr[k] = '\0';
-        temp[m] = '\0';
-    }
-    printf("new string with removed dups: %s\n",strr);
-    //printf("string dups: %s\n",temp);
+    printf("new string:%s\n",strr);
+    
 }
