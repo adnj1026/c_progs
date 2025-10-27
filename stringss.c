@@ -59,18 +59,19 @@ void firstoccurancesubstring(char str[],char str1[]);
 void uppertolowercase(char str[]);
 void countallthings(char str[]);
 void countwords(char str[]);
-void reversestring(char str[]);
+char* reversestring(char str[]);
 void palindromestring(char str[]);
 char* removeallspaces(char str[]);
 int frequencyofcharacters(char str[], char c);
 void removeduplicates(char str[]);
+void reversewordinsentence(char str[]);
 int main(){
     char str[40] = "aneesh";
     char dest[100] = "abcdefghijklmnopqrstuvwxyz";
     char n[20] = "aoi";
     char strr[50] = "aneesh datta nagaraju jois";
     /*************************************************/
-    removeduplicates(strr);
+    reversewordinsentence(strr);
     /*************************************************/
    
     return 0;
@@ -310,7 +311,7 @@ void countwords(char str[]){
     printf("the number of words are %d\n",words);
 }
 
-void reversestring(char str[]){
+char* reversestring(char str[]){
     int len = lenghtofstring(str);
     int temp;
     if(len % 2 == 0){
@@ -327,7 +328,8 @@ void reversestring(char str[]){
             str[len - 1 - i] = temp;
         }
     }
-    printf("the reversed string is: %s\n",str);
+    //printf("the reversed string is: %s\n",str);
+    return str;
 }
 
 void palindromestring(char str[]){
@@ -366,18 +368,18 @@ void palindromestring(char str[]){
 
 char* removeallspaces(char str[]) {
     int len = lenghtofstring(str);
-    char *strr = malloc((len + 1) * sizeof(char));  // +1 for '\0'
-    if (strr == NULL) return NULL;                  // always check malloc
+    char *strr = malloc((len + 1) * sizeof(char));  
+    if (strr == NULL) return NULL;                 
 
     int i = 0, k = 0;
     while (i < len) {
-        if (str[i] != ' ') {  // 32 is fine too
+        if (str[i] != ' ') {  
             strr[k++] = str[i];
         }
         i++;
     }
     strr[k] = '\0';
-    return strr;  // safe to return
+    return strr; 
 }
 
 int frequencyofcharacters(char str[], char c){
@@ -416,4 +418,35 @@ void removeduplicates(char str[]){
     }
     printf("new string:%s\n",strr);
     
+}
+
+void reversewordinsentence(char str[]){
+    int len = lenghtofstring(str);
+    int start = 0, end = 0;
+    int templen, a;
+    char temp;
+    for(int i = 0; i <= len; i++){
+        if(str[i] == 32 || str[i] == '\0'){
+            end = i;
+            templen = end - start;
+            a = end - 1;
+            if(templen % 2 == 0){
+                for(int j = (0); j < (templen/2); j++,start++,a--){
+                    temp = str[start];
+                    str[start] = str[a];
+                    str[a] = temp;
+                }
+            }
+            else{
+                for(int j = (0); j < ((templen-1)/2); j++,start++,a--){
+                    temp = str[start];
+                    str[start] = str[a];
+                    str[a] = temp;
+                }
+            }
+            start = end + 1;
+        }
+    }
+    printf("%s\n",str);
+
 }
