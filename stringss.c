@@ -15,7 +15,7 @@
 7. first occurance of a character in the string
 8. first occurance of substring in the string
 
-Basic programs:
+Basic programs(done):
 1. convert upper case to lowercase
 2. count vowels consonants digits and spaces
 3. count number of words in a sentence
@@ -65,13 +65,14 @@ char* removeallspaces(char str[]);
 int frequencyofcharacters(char str[], char c);
 void removeduplicates(char str[]);
 void reversewordinsentence(char str[]);
+void firstnonrepeatingcharacter(char str[]);
 int main(){
     char str[40] = "aneesh";
     char dest[100] = "abcdefghijklmnopqrstuvwxyz";
     char n[20] = "aoi";
     char strr[50] = "aneesh datta nagaraju jois";
     /*************************************************/
-    reversewordinsentence(strr);
+    firstnonrepeatingcharacter(strr);
     /*************************************************/
    
     return 0;
@@ -444,9 +445,24 @@ void reversewordinsentence(char str[]){
                     str[a] = temp;
                 }
             }
-            start = end + 1;
+            start = end + 1;    
         }
     }
     printf("%s\n",str);
+
+}
+
+void firstnonrepeatingcharacter(char str[]){
+    int len = lenghtofstring(str);
+    int i = 0;
+    while(i < len){
+        if(frequencyofcharacters(str,str[i]) == 1){
+            printf("the first non repeating character is %c\n",str[i]);
+            i++;
+            break;
+        }
+        else    
+            i++;
+    }
 
 }
