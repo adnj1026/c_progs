@@ -34,7 +34,7 @@ intermediate progs:
 
 hard progs:
 1. compress a string
-2. check if a string is rotation of another\
+2. check if a string is rotation of another
 3. longest palindrome substring
 4. convert string to integer
 5. convert integer to string
@@ -66,13 +66,17 @@ int frequencyofcharacters(char str[], char c);
 void removeduplicates(char str[]);
 void reversewordinsentence(char str[]);
 void firstnonrepeatingcharacter(char str[]);
+void checkifanagram(char str1[], char str2[]);
+void longestword(char str[]);
 int main(){
     char str[40] = "aneesh";
     char dest[100] = "abcdefghijklmnopqrstuvwxyz";
     char n[20] = "aoi";
     char strr[50] = "aneesh datta nagaraju jois";
+    char str1[20] = "mat";
+    char str2[20] = "atm";
     /*************************************************/
-    firstnonrepeatingcharacter(strr);
+    checkifanagram(str1,str2);
     /*************************************************/
    
     return 0;
@@ -466,3 +470,42 @@ void firstnonrepeatingcharacter(char str[]){
     }
 
 }
+
+void checkifanagram(char str1[], char str2[]){
+    int len1 = lenghtofstring(str1);
+    int len2 = lenghtofstring(str2);
+    int count;
+    if(len1 == len2){
+        for(int i = 0; i < len1; i++){
+            if(frequencyofcharacters(str1,str1[i]) == frequencyofcharacters(str2,str2[i]))
+                count++;
+            else{
+                printf("it is not an anagram\n");
+                break;
+            }
+            if(count == len1)
+                printf("it is an anagram\n");
+        }
+    }
+    else
+        printf("it is not an anagram\n");
+}
+
+void longestword(char str[]){
+    int len = lenghtofstring(str);
+    int start = 0, end = 0, l = 0;
+    int a;
+    int arr[start][2];
+    char temp;
+    for(int i = 0; i <= len; i++){
+        if(str[i] == 32 || str[i] == '\0'){
+            end = i;
+            a = end - 1;
+            
+            start = end + 1;    
+        }
+
+    }
+    printf("%s\n",str);
+}
+
