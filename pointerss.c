@@ -43,12 +43,34 @@ hard
 
 
 */
+
+void pointerassignation(void);
+void swap(void);
 int main(){
-    char* p = NULL;
+    
+    return 0;
+}
+
+void pointerassignation(void){
+    char* p = NULL;\
     char s = 'a';
     p = &s;
     printf("address = %p\n",p);
     printf("address = %p\n",&p);
     printf("normal = %d\n",*p);
-    return 0;
+}
+
+void swap(void){
+    int c = 10;
+    int d = 20;
+    int temp;
+    int* q = NULL;
+    int* p = NULL;
+    p = &c;
+    q = &d;
+    temp = *p;
+    *p = *q;
+    *q = temp;
+    printf("c = %d\n",c);
+    printf("d = %d\n",d);
 }
