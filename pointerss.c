@@ -46,8 +46,13 @@ hard
 
 void pointerassignation(void);
 void swap(void);
+int add_with_pointers(int* a, int* b);
+int max_using_pointers(int* a, int* b);
+int* address_of_each_element(int arr[],int* p);
+void pointer_pointer(void);
+void reverse_array_using_pointers(void);
 int main(){
-    
+    pointer_pointer();
     return 0;
 }
 
@@ -73,4 +78,44 @@ void swap(void){
     *q = temp;
     printf("c = %d\n",c);
     printf("d = %d\n",d);
+}
+
+int add_with_pointers(int* a, int* b){
+    int sum;
+    sum = ((*a) + (*b));
+    return sum;
+
+}
+
+int max_using_pointers(int* a, int* b){
+    int a1 = *a;
+    int b1 = *b;
+    if(a1 > b1) return a1;
+    else return b1;
+}
+
+int* address_of_each_element(int arr[],int* p){
+    /*int a[3] = {1,2,3};
+    int* p = NULL;
+    int* sum = address_of_each_element(a,p);
+    for(int i = 0; i < 3; i++)
+    printf("%p\n",(sum + i));*/
+    p = arr;
+    return p;
+}
+
+void pointer_pointer(void){
+    int a = 99;
+    int* p = &a;
+    int** q = &p;
+    printf("%d\n",**q);
+}
+
+void reverse_array_using_pointers(void){
+    int d[10] = {199,72,33,14,25,63,77,85,49,99};
+    char s[11] = "AneeshDatta";
+    int* p = d;
+    char* a = s;
+    int temp;
+     
 }
