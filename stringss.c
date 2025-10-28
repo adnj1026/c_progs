@@ -30,7 +30,7 @@ intermediate progs:
 5. reverse each word in a sentence
 6. check if two strings are anagrams
 7. find longest word in a sentence
-8. check if one string is a substring of another
+
 
 hard progs:
 1. compress a string
@@ -494,15 +494,14 @@ void checkifanagram(char str1[], char str2[]){
 void longestword(char str[]){
     int len = lenghtofstring(str);
     int start = 0, end = 0, l = 0;
-    int a;
-    int arr[start][2];
-    char temp;
+    int temp;
+    char strrr[len];
+    int arr[len][2];
     for(int i = 0; i <= len; i++){
         if(str[i] == 32 || str[i] == '\0'){
             end = i;
-            a = end - 1;
-            
-            start = end + 1;    
+            start = end + 1;
+              
         }
 
     }
