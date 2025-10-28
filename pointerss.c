@@ -44,5 +44,11 @@ hard
 
 */
 int main(){
+    char* p = NULL;
+    char s = 'a';
+    p = &s;
+    printf("address = %p\n",p);
+    printf("address = %p\n",&p);
+    printf("normal = %d\n",*p);
     return 0;
 }
