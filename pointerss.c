@@ -112,10 +112,14 @@ void pointer_pointer(void){
 }
 
 void reverse_array_using_pointers(void){
+    int n = 10;
     int d[10] = {199,72,33,14,25,63,77,85,49,99};
     char s[11] = "AneeshDatta";
     int* p = d;
     char* a = s;
-    int temp;
-     
+    int temp, i = 0;
+    while(i < 10){
+        
+    }
+    
 }
