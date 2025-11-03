@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stringss.h>
 
 /*
 basics:
@@ -118,8 +119,39 @@ void reverse_array_using_pointers(void){
     int* p = d;
     char* a = s;
     int temp, i = 0;
-    while(i < 10){
-        
+    while(i < n){
+        if(n % 2 == 0){
+            for(int j = 0; j < (n/2); j++){
+                temp = *(p + j);
+                *(p + j) = *(p + n - j);
+                *(p + n - j) = temp;
+            }
+        }
+        else{
+            for(int j = 0; j < ((n-1)/2); j++){
+                temp = *(p + j);
+                *(p + j) = *(p + n - j);
+                *(p + n - j) = temp;
+            }
+        }
     }
+    int len = lenghtofstring(s);
+    while(i < len){
+        if(n % 2 == 0){
+            for(int j = 0; j < (n/2); j++){
+                temp = *(p + j);
+                *(p + j) = *(p + n - j);
+                *(p + n - j) = temp;
+            }
+        }
+        else{
+            for(int j = 0; j < ((n-1)/2); j++){
+                temp = *(p + j);
+                *(p + j) = *(p + n - j);
+                *(p + n - j) = temp;
+            }
+        }
+    }
+
     
 }
