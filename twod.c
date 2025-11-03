@@ -14,30 +14,11 @@
 void displaymatrix(int r, int c, int matrix[][c]);
 void sumofelementsmatrix(int r, int c, int matrix[][c]);
 void inputanarray(void);
-void inputtwoarrays(void);
+void inputtwoarrayss(void);
 void additionofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][c]);
 void multiplicationofmatrices(int r, int c, int m1[][c],int p, int q, int m2[][c]);
 void transposematrix(int r, int c, int m1[][c]);
 
-int main(){
-    int c;
-    printf("enter number of columns : ");
-    scanf("%d",&c);
-    int r;
-    printf("enter number of rows : ");
-    scanf("%d",&r); 
-    int matrix[r][c];
-    printf("enter the elements of a matrix\n");
-    for(int i = 0; i < r; i++){
-        printf("enter elements in the %d row: ",i);
-        for(int j = 0; j < c; j++){
-            scanf("%d",&matrix[i][j]);
-        }
-        printf("\n");
-    }
-    transposematrix(r,c,matrix);
-    return 0;
-}
 
 void inputanarray(void){
     int c;
@@ -56,7 +37,7 @@ void inputanarray(void){
         printf("\n");
     }
 }
-void inputtwoarrays(void){
+void inputtwoarrayss(void){
     printf("FIRST MATRIX\n");
     int c;
     printf("enter number of columns : ");

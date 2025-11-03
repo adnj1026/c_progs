@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include <stringss.h>
+#include "stringss.h"
 
 /*
 <string.h> replicas:
@@ -45,21 +45,31 @@ hard progs:
 10. Find smallest and largest word in a string
 */
 
+void stringinputdynamic(void);
+void basicstringinput(void);
+void input2strings(void);
+int lenghtofstring(char str[]);
+void copyastring(char source[],char dest[]);
+void concatenatestrings(char str1[],char str2[]);
+void comparestrings(char str1[],char str2[]);
+void stringcopyy(char src[],char dest[],int n);
+void stringconcat(char src[], char dest[], int n);
+void firstoccuranceinstring(char str[],int c);
+void firstoccurancesubstring(char str[],char str1[]);
+void uppertolowercase(char str[]);
+void countallthings(char str[]);
+void countwords(char str[]);
+char* reversestring(char str[]);
+void palindromestring(char str[]);
+char* removeallspaces(char str[]);
+int frequencyofcharacters(char str[], char c);
+void removeduplicates(char str[]);
+void reversewordinsentence(char str[]);
+void firstnonrepeatingcharacter(char str[]);
+void checkifanagram(char str1[], char str2[]);
+void longestword(char str[]);
 
 
-int main(){
-    char str[40] = "aneesh";
-    char dest[100] = "abcdefghijklmnopqrstuvwxyz";
-    char n[20] = "aoi";
-    char strr[50] = "aneesh datta nagaraju jois";
-    char str1[20] = "mat";
-    char str2[20] = "atm";
-    /*************************************************/
-    checkifanagram(str1,str2);
-    /*************************************************/
-   
-    return 0;
-}
 // for my reference
 void input2strings(void){
     char *str1 = NULL;
@@ -381,7 +391,7 @@ int frequencyofcharacters(char str[], char c){
     return count;
 }
 
-void removeduplicates(char str[]){
+void removeduplicatess(char str[]){
     int len = lenghtofstring(str);
     int count = 0,k = 0, a = 0,c = 0;
     char strr[len];

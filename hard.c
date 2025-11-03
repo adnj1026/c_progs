@@ -73,6 +73,3 @@ Debug pointer bugs using printf and address tracing (intentionally mess up to un
 
 */
 
-int main(){
-    return 0;
-}

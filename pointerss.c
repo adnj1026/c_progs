@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stringss.h>
+#include "stringss.h"
 
 /*
 basics:
@@ -52,10 +52,6 @@ int max_using_pointers(int* a, int* b);
 int* address_of_each_element(int arr[],int* p);
 void pointer_pointer(void);
 void reverse_array_using_pointers(void);
-int main(){
-    pointer_pointer();
-    return 0;
-}
 
 void pointerassignation(void){
     char* p = NULL;\
@@ -115,43 +111,53 @@ void pointer_pointer(void){
 void reverse_array_using_pointers(void){
     int n = 10;
     int d[10] = {199,72,33,14,25,63,77,85,49,99};
-    char s[11] = "AneeshDatta";
+    char s[12] = "AneeshDatta";
     int* p = d;
+    //printf("%d\n",*(p + n - 1 - 0));
+    
     char* a = s;
     int temp, i = 0;
-    while(i < n){
-        if(n % 2 == 0){
-            for(int j = 0; j < (n/2); j++){
-                temp = *(p + j);
-                *(p + j) = *(p + n - j);
-                *(p + n - j) = temp;
-            }
-        }
-        else{
-            for(int j = 0; j < ((n-1)/2); j++){
-                temp = *(p + j);
-                *(p + j) = *(p + n - j);
-                *(p + n - j) = temp;
-            }
+    //printf("%c\n",*(a + n - 1 - 0));
+    if(n % 2 == 0)
+    {
+        for(int j = 0; j < (n/2); j++)
+        {
+            temp = *(p + j);
+            *(p + j) = *(p + n - j - 1);
+            *(p + n - 1 - j) = temp;
         }
     }
-    int len = lenghtofstring(s);
-    while(i < len){
-        if(n % 2 == 0){
-            for(int j = 0; j < (n/2); j++){
-                temp = *(p + j);
-                *(p + j) = *(p + n - j);
-                *(p + n - j) = temp;
-            }
-        }
-        else{
-            for(int j = 0; j < ((n-1)/2); j++){
-                temp = *(p + j);
-                *(p + j) = *(p + n - j);
-                *(p + n - j) = temp;
-            }
+    else
+    {
+        for(int j = 0; j < ((n-1)/2); j++)
+        {
+            temp = *(p + j);
+            *(p + j) = *(p + n - j - 1);
+            *(p + n - j) = temp;
         }
     }
-
     
+    int len = lenghtofstring(s);
+    if(len % 2 == 0)
+    {
+        for(int j = 0; j < (len/2); j++)
+        {
+            temp = *(a + j);
+            *(a + j) = *(a + len-1 - j);
+            *(a + len-1 - j) = temp;
+        }
+    }
+    else
+    {
+        for(int j = 0; j < ((len-1)/2); j++)
+        {
+            temp = *(a + j);
+            *(a + j) = *(a + len-1 - j);
+            *(a + len-1 - j) = temp;
+        }
+    }
+    printf("%s\n",s);
+    for(int k = 0; k < n; k++){
+        printf(" %d ",d[k]);
+    }
 }

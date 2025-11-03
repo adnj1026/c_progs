@@ -1,5 +1,5 @@
-#ifndef functionss
-#define functionss
+#ifndef STRINGSS_H
+#define STRINGSS_H
 
 void stringinputdynamic(void);
 void basicstringinput(void);
@@ -19,7 +19,7 @@ char* reversestring(char str[]);
 void palindromestring(char str[]);
 char* removeallspaces(char str[]);
 int frequencyofcharacters(char str[], char c);
-void removeduplicates(char str[]);
+void removeduplicatess(char str[]);
 void reversewordinsentence(char str[]);
 void firstnonrepeatingcharacter(char str[]);
 void checkifanagram(char str1[], char str2[]);
