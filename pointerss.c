@@ -52,6 +52,11 @@ int max_using_pointers(int* a, int* b);
 int* address_of_each_element(int arr[],int* p);
 void pointer_pointer(void);
 void reverse_array_using_pointers(void);
+void count_even_odd_(int arr[], int n);
+int length_of_a_string(char arr[]);
+void copy_a_string(char str[]);
+char* concatenate_strings(char* a, char* b);
+int string_compare(char* a, char* b);
 
 void pointerassignation(void){
     char* p = NULL;\
@@ -160,4 +165,66 @@ void reverse_array_using_pointers(void){
     for(int k = 0; k < n; k++){
         printf(" %d ",d[k]);
     }
+}
+
+void count_even_odd_(int arr[], int n){
+    int* p = arr;
+    int count_even = 0,count_odd = 0;
+    for(int i = 0; i < n; i++){
+        if(*(p + i) % 2 == 0) count_even++;
+        else count_odd++;
+    }
+    printf("the number of even elements are %d\n",count_even);
+    printf("the number of odd elements are %d\n",count_odd);
+
+}
+
+int length_of_a_string(char str[]){
+    int i = 0, count = 0;
+    while(str[i] != '\0'){
+        count++;
+        i++;
+    }
+    return count;
+}
+
+void copy_a_string(char str[]){
+    char* p = str;
+    int len = length_of_a_string(str);
+    char str1[len];
+    int i = 0;
+    while(*(p + i) < len){
+        *(p + i) = str1[i];
+        i++;
+    }
+    printf("the copied string is %s\n",str1);
+}
+
+char* concatenate_strings(char* a, char* b){
+    int len1 = length_of_a_string(a);
+    int len2 = length_of_a_string(b);
+    char strr[len1 + len2];
+    char* r = strr;
+    for(int i = 0; i < (len1); i++){
+        strr[i] = *(a + i);
+    }
+    for(int j = 0; j < len2; j++){
+        strr[len1 + j] = *(b + j);
+    }
+    return r;
+
+}
+
+//return 0	if string1 == string2
+//return 1	if string1 > string2
+//return-1	if string1 < string2
+// comparing lexographically
+int string_compare(char* a, char* b){
+    int i = 0;
+    while(*(a + i) != '\0' && *(b + i) != '\0'){
+        if((int)*(a + i) > (int)*(b + i)) return 1;
+        else if((int)*(a + i) < (int)*(b + i)) return -1;
+        i++;
+    }
+    return 0;
 }

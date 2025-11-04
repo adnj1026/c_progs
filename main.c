@@ -11,8 +11,8 @@
 #include "twod.h"
 
 int main(){
-    reverse_array_using_pointers();
-    
+    char str[26]="Aneesh Datta Nagaraju Jois";
+    longestword(str);
     return 0;
 }
 

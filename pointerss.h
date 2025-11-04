@@ -8,5 +8,6 @@ int max_using_pointers(int* a, int* b);
 int* address_of_each_element(int arr[],int* p);
 void pointer_pointer(void);
 void reverse_array_using_pointers(void);
+void count_even_odd_(int arr[], int n);
 
 #endif

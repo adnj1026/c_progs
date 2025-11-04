@@ -482,18 +482,18 @@ void checkifanagram(char str1[], char str2[]){
 
 void longestword(char str[]){
     int len = lenghtofstring(str);
-    int start = 0, end = 0, l = 0;
-    int temp;
-    char strrr[len];
-    int arr[len][2];
+    int start = 0, end = 0;
+    int temp = 0, count = 0;
     for(int i = 0; i <= len; i++){
         if(str[i] == 32 || str[i] == '\0'){
+            count = 0;
             end = i;
+            count = end - start;
+            if(temp < count) temp = count;
             start = end + 1;
-              
         }
 
     }
-    printf("%s\n",str);
+    printf("the longest word is %d\n",temp);
 }
 
