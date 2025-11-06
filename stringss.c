@@ -68,8 +68,11 @@ void reversewordinsentence(char str[]);
 void firstnonrepeatingcharacter(char str[]);
 void checkifanagram(char str1[], char str2[]);
 void longestword(char str[]);
+void shortestword(char str[]);
 
+void shortestword(char str[]){
 
+}
 // for my reference
 void input2strings(void){
     char *str1 = NULL;
@@ -483,17 +486,24 @@ void checkifanagram(char str1[], char str2[]){
 void longestword(char str[]){
     int len = lenghtofstring(str);
     int start = 0, end = 0;
-    int temp = 0, count = 0;
+    int temp = 0, count = 0, l = 0;
+    int s,e = 0;
+    char tempp[len];
     for(int i = 0; i <= len; i++){
         if(str[i] == 32 || str[i] == '\0'){
             count = 0;
             end = i;
             count = end - start;
-            if(temp < count) temp = count;
+            l = 0;
+            if(temp < count) temp = count; s = start; e = end;
             start = end + 1;
         }
 
     }
-    printf("the longest word is %d\n",temp);
+    while( l <= count){
+        tempp[l] = str[]
+    }
+    printf("the longest word is %s\n",tempp);
+    printf("the length of the longest word is %d\n",temp);
 }
 

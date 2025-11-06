@@ -226,5 +226,5 @@ int string_compare(char* a, char* b){
         else if((int)*(a + i) < (int)*(b + i)) return -1;
         i++;
     }
-    return 0;
+    return (int)*(a + i) < (int)*(b + i);
 }

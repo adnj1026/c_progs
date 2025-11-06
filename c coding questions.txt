@@ -218,6 +218,7 @@ Strlen() String Length
 Strcat() String Concatenate
 Strcmp() String Compare
 Strcpy() Copy the String
+
 10. Pointer Questions
 Add two numbers using pointers.
 Swap two numbers using pointers.
@@ -236,6 +237,7 @@ Compare two strings using pointers.
 Find the reverse of a string using pointers.
 Sort array using pointers.
 Return multiple values from a function using pointers.
+
 11. File Handling
 Create a file and write contents, save and close the file.
 Read file contents and display them on the console.
@@ -259,6 +261,7 @@ Find properties of a file using stat() function.
 Check if a file or directory exists.
 Rename a file using rename() function.
 List all files and sub-directories recursively.
+
 12. Sorting
 Bubble Sort in C
 Bucket or Radix Sort in C
@@ -267,16 +270,18 @@ Merge Sort in C
 Heap Sort in C
 Selection Sort in C
 Insertion Sort in C
+
 13. Searching
 Binary Search in C
 Linear Search in C
 Recursive Binary Search in C
+
 14. Tricky Questions for Expert Only | Legendary level
 This is a high-level section for legendary programmers or thinkers, this section can help you to become a pro programmer. In this section, two categories are the number pattern and start pattern. I just keep the pattern programming and number programming separate. All the tricky questions or we can say that number programming or start pattern programming solutions of c programming questions and answers are below.
-
 Number Series- C Programming Questions and Answers
 Start Pattern Printing- C Programming Questions and Answers
 Puzzles Questions
+
 15. Puzzles Questions
 Print numbers from 1 to n without using a semicolon?
 Sum of two numbers without using any operator
